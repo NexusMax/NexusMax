@@ -1,0 +1,1 @@
+class="parallax-window" data-parallax="scroll" data-image-src="img/Group-4.jpg"
