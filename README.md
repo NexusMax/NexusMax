@@ -1,2 +1,0 @@
-# NexusMax
-learning programming
