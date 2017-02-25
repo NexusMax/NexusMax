@@ -19,7 +19,12 @@
 <body>
 
 
-
+<form action="Add_Post.php" method="post">
+    <input type="text" name="title">
+    <input type="text" name="descr">
+    <input type="text" name="full_desc">
+    <input type="submit" name="submit">
+</form>
 
 <div class="container">
     <!-- Example row of columns -->

@@ -1,6 +1,5 @@
 <?php
 
-include __DIR__ . '/functions/DB.php';
 include __DIR__ . '/models/Post.php';
 
 $Post_all = Post_All();
