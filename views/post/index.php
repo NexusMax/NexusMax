@@ -23,7 +23,7 @@
 <div class="container">
     <!-- Example row of columns -->
     <div class="row">
-        <?php foreach ($Post_one as $post): ?>
+        <?php foreach ($articleList as $post): ?>
             <div class="col-md-4">
                 <h2><?=$post['title'];?></h2>
                 <p><?=$post['full_desc'];?></p>

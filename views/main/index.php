@@ -29,11 +29,11 @@
 <div class="container">
     <!-- Example row of columns -->
     <div class="row">
-        <?php foreach ($Post_all as $post): ?>
+        <?php foreach ($articleList as $post): ?>
         <div class="col-md-4">
             <h2><?=$post['title'];?></h2>
             <p><?=$post['descr'];?></p>
-            <p><a class="btn btn-default" href="Post.php?post=<?=$post['id'];?>" role="button">View details &raquo;</a></p>
+            <p><a class="btn btn-default" href="<?= $post['id']; ?>" role="button">View details &raquo;</a></p>
         </div>
         <? endforeach; ?>
     </div>
