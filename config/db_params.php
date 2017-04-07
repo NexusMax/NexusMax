@@ -2,7 +2,7 @@
 
 return [
     'host' => 'localhost',
-    'db' => 'ebanuyTest',
+    'db' => 'internetside',
     'charset' => 'utf8',
     'user' => 'root',
     'pass' => '1111',

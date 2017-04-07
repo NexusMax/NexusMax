@@ -22,13 +22,44 @@ class DB
         return new PDO($dsn, $user, $pass, $opt);
     }
 
-    public function DB_Query($sql)
+    public static function getQuery($sql, $params = [])
     {
         $pdo = DB::getConnection();
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+        $result = [];
+        while ($row = $stmt->fetch()) {
+            $result[] = $row;
+        }
+
+        return $result;
+    }
+    public static function getOneQuery($sql, $params = [])
+    {
+        $pdo = DB::getConnection();
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+        $row = $stmt->fetch();
+
+        return $row;
+    }
+    public static function getFetchColumn($sql, $params = [])
+    {
+        $pdo = DB::getConnection();
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute($params);
+
+        return $stmt->fetchColumn();
+    }
+    public static function getQueryLimit($sql, $params = [])
+    {
+        $pdo = DB::getConnection();
+        $stmt = $pdo->prepare($sql);
+        for($i = 1; $i <= count($params); $i++)
+            $stmt->bindValue($i, $params[$i-1], PDO::PARAM_INT);
+        $stmt->execute();
 
         $result = [];
-
-        $stmt = $pdo->query($sql);
         while ($row = $stmt->fetch()) {
             $result[] = $row;
         }
@@ -36,9 +67,10 @@ class DB
         return $result;
     }
 
-    public function DB_Insert($sql)
+    public static function setQuery($sql, $params = [])
     {
         $pdo = DB::getConnection();
-        $pdo->query($sql);
+        $stmt = $pdo->prepare($sql);
+        return $stmt->execute($params) ? $pdo->lastInsertId() : 0;
     }
 }
